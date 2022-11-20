@@ -1,15 +1,13 @@
 pipeline {
 
-  agent any
+  agent { docker { image 'maven:3.8.6-openjdk-11-slim' } }
 
   stages {
 
     stage('Build') {
       steps {
-        container('maven') {
-          echo 'AAA'
-          sh 'mvn clean verify'
-        }
+        echo 'AAA'
+        sh 'mvn clean verify'
       }
     }
 
